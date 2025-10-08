@@ -18,17 +18,7 @@ function adicionarItemToDo() {
     salvarLocalStorage();
   }
 }
-function checkList(index) {
-  if (todo.value[index].completo === true) {
-    salvarLocalStorage();
-  } else (todo.value[index].completo === false)
-  salvarLocalStorage();
-  console.log("checado", index, "→", todo.value[index].completo);
-}
-function completarItemToDo(index) {
-  todo.value[index].completo = !todo.value[index].completo;
-}
-function trocarImagem(index) {
+function favoritar(index) {
   const item = todo.value[index];
   item.imagemAtual = item.imagemAtual === estrelaFalse ? estrelaTrue : estrelaFalse;
   salvarLocalStorage();
@@ -82,11 +72,11 @@ onMounted(() => {
       <div class="boxlist">
         <ul>
           <li v-for="(item, index) in todo" :key="index" class="inputlist">
-            <button @click="trocarImagem(index)" class="botao-imagem">
-              <img :src="item.imagemAtual" alt="estrela" class="estrela"
+            <button @click="favoritar(index)" class="botao-imagem">
+              <img :src="item.imagemAtual" alt="estrela" 
                 style="width: 25px; height: 25px; object-fit: contain; display: block;" />
             </button>
-            <input class="check" type="checkbox" v-model="item.completo" @change="checkList(index)" />
+            <input class="check" type="checkbox" v-model="item.completo" @change="salvarLocalStorage()" />
             <template v-if="item.editando">
               <input class="inputedit" v-model="item.titulo" @keyup.enter="salvarEdicao(index)"
                 @blur="salvarEdicao(index)" autofocus />
@@ -97,8 +87,8 @@ onMounted(() => {
               </span>
             </template>
             <div class="botoes">
-              <button class="btn editar" @click="editarItemToDo(index)">Editar</button>
-              <button class="btn deletar" @click="deleteItemToDo(index)">Deletar</button>
+              <button class="btn editar" @click="editarItemToDo(index)"><img src="/edit.png" style="width: 35px; height: 35px; object-fit: contain; display: block;"></button>
+              <button class="btn deletar" @click="deleteItemToDo(index)"><img src="/delete/delete.png" style="width: 35px; height: 35px; object-fit: contain; display: block;"></button>
             </div>
           </li>
         </ul>
@@ -231,8 +221,8 @@ onMounted(() => {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -55%); /* centraliza o “v” */
-  color: #fff; /* branco */
+  transform: translate(-50%, -55%); 
+  color: #fff; 
   font-size: 14px;
   font-weight: bold;
 }
@@ -249,8 +239,8 @@ onMounted(() => {
 }
 
 .inputlist:hover {
-  border: 2px solid #696767;
-  background: #f0f0f0;
+  
+  background:rgb(235, 234, 234)0;
 }
 
 .titulo-tarefa {
@@ -270,13 +260,15 @@ onMounted(() => {
 
 .inputedit {
   width: 100%;
-  background: #c5c5c5;
+  background: #919190;
   border: none;
   outline: none;
   color: #fff;
   border-radius: none;
   padding: 5px 10px;
   font-size: 20px;
+  margin-left: 5px;
+  border-radius: 5px;
 }
 
 .botoes {
@@ -305,12 +297,12 @@ onMounted(() => {
 }
 
 .editar {
-  background: #4caf50;
+  background: #ffffff;
   color: white;
 }
 
 .deletar {
-  background: #e53935;
+  background: #ffffff;
   color: white;
 }
 
