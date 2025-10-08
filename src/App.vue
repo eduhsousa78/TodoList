@@ -59,7 +59,9 @@ onMounted(() => {
 <template>
   <div class="fundo">
     <div class="corpo">
-      <h1 class="titulo">To Do List</h1>
+      <div class="logo">
+      <img src="/logo/logo.png" style="width: 500px; height: 250%; object-fit: contain; display: center;">
+      </div>
       <div class="boxadd">
         <input class="inputadd" v-model="descricao" @keyup.enter="adicionarItemToDo"
           placeholder="Digite a sua tarefa..." />
@@ -87,8 +89,8 @@ onMounted(() => {
               </span>
             </template>
             <div class="botoes">
-              <button class="btn editar" @click="editarItemToDo(index)"><img src="/edit.png" style="width: 35px; height: 35px; object-fit: contain; display: block;"></button>
-              <button class="btn deletar" @click="deleteItemToDo(index)"><img src="/delete/delete.png" style="width: 35px; height: 35px; object-fit: contain; display: block;"></button>
+              <button class="btn editar" @click="editarItemToDo(index)"><img src="/edit.svg" style="width: 35px; height: 35px; object-fit: contain; display: block;"></button>
+              <button class="btn deletar" @click="deleteItemToDo(index)"><img src="/delete.svg" style="width: 35px; height: 35px; object-fit: contain; display: block;"></button>
             </div>
           </li>
         </ul>
@@ -104,13 +106,15 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/fundo.jpg');
+  background: #000;
+  background: linear-gradient(360deg,rgba(0, 0, 0, 1) 0%, rgba(245, 198, 27, 1) 50%, rgba(245, 198, 27, 1) 100%);
   width: 100vw;
   height: 100vh;
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 
@@ -126,6 +130,7 @@ onMounted(() => {
   font-family: "Poppins", sans-serif;
   color: #fff;
   font-size: 20px;
+  
 }
 
 .corpo {
@@ -135,8 +140,14 @@ onMounted(() => {
   width: 1200px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   opacity: 0.95;
+  
 }
-
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
 .titulo {
   text-align: center;
   margin-bottom: 1rem;
@@ -149,6 +160,7 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
+  font-family: 'Montserrat'
 }
 
 .botao-imagem {
@@ -168,6 +180,7 @@ onMounted(() => {
   background: #d8d8d8;
   color: #000000;
   font-size: 20px;
+  
 }
 
 .add {
@@ -211,8 +224,8 @@ onMounted(() => {
 }
 
 .check:checked {
-  background-color: #95c6ff;
-  border-color: #95c6ff;
+  background-color: #f5c518;
+  border-color: #f5c518;
   box-shadow: 0 0 5px #585857;
 }
 
