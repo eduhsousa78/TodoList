@@ -58,8 +58,9 @@ onMounted(() => {
 
 <template>
   <div class="fundo">
+
     <div class="corpo">
-      <div class="logo">
+          <div class="logo">
       <img src="/logo/logo.png" style="width: 500px; height: 250%; object-fit: contain; display: center;">
       </div>
       <div class="boxadd">
@@ -89,6 +90,7 @@ onMounted(() => {
               </span>
             </template>
             <div class="botoes">
+
               <button class="btn editar" @click="editarItemToDo(index)"><img src="/edit.svg" style="width: 35px; height: 35px; object-fit: contain; display: block;"></button>
               <button class="btn deletar" @click="deleteItemToDo(index)"><img src="/delete.svg" style="width: 35px; height: 35px; object-fit: contain; display: block;"></button>
             </div>
@@ -106,7 +108,8 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
+  background: #f0f5b9;
+
   background: linear-gradient(360deg,rgba(0, 0, 0, 1) 0%, rgba(245, 198, 27, 1) 50%, rgba(245, 198, 27, 1) 100%);
   width: 100vw;
   height: 100vh;
@@ -114,35 +117,33 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  margin-right:400px ;
+  margin-left: ;
 }
 
 
 .fundo {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 600px;
+  width: auto;
+  
   font-family: "Poppins", sans-serif;
   color: #fff;
   font-size: 20px;
-  
 }
 
 .corpo {
   background: #ffffff;
   padding: 2rem;
   border-radius: 16px;
-  width: 1200px;
+  width: 1500px;
+  height: 600px;
+  margin-top: auto;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   opacity: 0.95;
   
 }
 .logo{
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
