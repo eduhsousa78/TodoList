@@ -1,35 +1,29 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
+/* ... (Regras de 'a' e @media (hover: hover) ) ... */
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
+/* REGRAS CORRIGIDAS PARA MAIS DE 1024PX */
 @media (min-width: 1024px) {
   body {
-    display: flex;
-    place-items: center;
+    /* REMOVA display: flex; e place-items: center; */
+    /* Garanta que o corpo da página ocupa toda a tela */
+    width: 100%;
+    min-height: 100vh;
+    display: block; /* Volta para o comportamento padrão de bloco */
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    /* REMOVA display: grid; e grid-template-columns: 1fr 1fr; */
+    /* Estas regras devem ser aplicadas DENTRO do seu componente, não no #app */
+    display: block; 
+    width: 100%; /* Garante que o #app preenche a largura do body */
+    
+    /* Mantenha o padding se quiser, mas pode ser melhor controlá-lo no container-fluid */
+    padding: 0; 
   }
 }
